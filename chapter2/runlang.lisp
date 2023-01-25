@@ -1,0 +1,17 @@
+(defgrammar *runlang-grammar* 
+  (times ("x"))
+  (plus ("+" "\\"))
+  (separator ("." ","))
+  (ws (" ")) 
+  (term  ("CL" "CA" "CV" "TR" "LVS" "LE" "MO" "FO" "FTS" "MAX"))
+  (ws* (() (:ws :ws*)))
+  (ws1 ((:ws :ws*)))
+  (0-5 (0 1 2 3 4 5))
+  (6-9 (6 7 8 9))
+  (digit (six-to-nine zero-to-five))
+  (integer (digit (digit integer)))
+  (decimal ((integer separator digit) integer))
+  (base-60 (watch-digits digit))
+  (watch-digits (zero-to-five digit))
+  (distance ((integer "m") (decimal "km")))) 
+
