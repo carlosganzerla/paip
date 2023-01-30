@@ -10,3 +10,7 @@
   lst)
 
 (last '(1 2 3 4))
+
+(with-open-file (x y))ith-open-file (x y)
+
+(princ "hi")
